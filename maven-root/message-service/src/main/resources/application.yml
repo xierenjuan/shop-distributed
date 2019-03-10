@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: message-service
+#  rabbitmq:
+#    host: 47.96.164.223
+#    port: 5672
+#    username: ebgapp
+#    password: eB9aPp0402
+#    virtual-host: ebuygo
+#  profiles:
+#    active: ${spring.cloud.config.profile}
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.test.common.entity
+  configuration:
+    cache-enabled: false
+    local-cache-scope: statement
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6060/eureka/
+server:
+  port: 6066
