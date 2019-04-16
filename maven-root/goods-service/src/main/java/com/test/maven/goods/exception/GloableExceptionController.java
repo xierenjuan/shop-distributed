@@ -16,6 +16,7 @@ public class GloableExceptionController {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public CommonResult<Void> handle(Exception e) {
+        e.printStackTrace();
         if (e instanceof DataException) {
             return CommonResult.getFaiInstance("3001",e.getMessage());
         }else {

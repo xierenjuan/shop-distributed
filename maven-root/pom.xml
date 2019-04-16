@@ -114,6 +114,13 @@
                     <include>**/*.*</include>
                 </includes>
             </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
         </resources>
         <plugins>
             <plugin>
