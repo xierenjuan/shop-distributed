@@ -36,4 +36,10 @@ public class OrderController {
         List<GoodsDto> list = goodsApi.list(1);
         return CommonResult.getSucceedInstance(list);
     }
+
+    @ApiOperation("订单测试2")
+    @GetMapping("/test2")
+    public CommonResult<Object> test2(){
+        return CommonResult.getSucceedInstance(orderService.list());
+    }
 }
