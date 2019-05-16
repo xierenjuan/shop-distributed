@@ -4,9 +4,7 @@ import java.lang.reflect.Field;
 import java.util.Date;
 
 /**
- * Entity 构造 者
- * 
- * @author ZHANGYUKUN
+ * Entity 构造者
  *
  */
 public class EntityBuilder {

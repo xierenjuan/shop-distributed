@@ -16,7 +16,7 @@ spring:
 #    active: ${spring.cloud.config.profile}
 mybatis:
   mapperLocations: classpath:mapper/*.xml
-  typeAliasesPackage: com.test.common.entity
+  typeAliasesPackage: com.test.converter.entity
   configuration:
     cache-enabled: false
     local-cache-scope: statement

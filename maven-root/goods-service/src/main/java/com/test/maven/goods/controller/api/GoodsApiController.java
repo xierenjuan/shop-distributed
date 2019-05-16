@@ -3,7 +3,7 @@ package com.test.maven.goods.controller.api;
 import com.test.common.dto.GoodsDto;
 import com.test.common.entity.Goods;
 import com.test.maven.api.GoodsApi;
-import com.test.maven.goods.common.BeanUtils;
+import com.test.maven.goods.util.BeanUtils;
 import com.test.maven.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;

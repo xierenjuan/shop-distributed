@@ -1,4 +1,4 @@
-package com.test.maven.goods.common;
+package com.test.maven.goods.util;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.github.pagehelper.Page;
@@ -13,6 +13,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 操作bean 工具类
+ */
 public class BeanUtils {
 
 

@@ -1,6 +1,7 @@
 package com.test.maven.goods.aop;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -34,8 +35,13 @@ public class LogAop {
         String clazzName = clazz.getName();
         String methodName = joinPoint.getSignature().getName(); // 获取方法名称
         // 获取参数名称和值
-        StringBuffer sb = LogAopUtil.getNameAndArgs(this.getClass(), clazzName, methodName, args);
-        log.info("请求参数：" + request.getRequestURL()/*getServletPath() */+ "?" + sb + ",IP:" + getRealIP(request));
+        StringBuffer sb = new StringBuffer();
+        if(request.getParameterMap().size() == 0 || "application/json".equals(request.getContentType())){
+            sb = LogAopUtil.getNameAndArgs(this.getClass(), clazzName, methodName, args);
+        }else {
+            sb.append(JSONObject.toJSONString(request.getParameterMap()).toString());
+        }
+        log.info("请求参数：" + request.getRequestURL() + "?" + sb + ",IP:" + getRealIP(request));
 
     }
     public String getRealIP(HttpServletRequest request) {

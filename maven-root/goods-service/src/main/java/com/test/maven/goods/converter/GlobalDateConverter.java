@@ -1,4 +1,4 @@
-package com.test.maven.goods.common;
+package com.test.maven.goods.converter;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.convert.converter.Converter;
