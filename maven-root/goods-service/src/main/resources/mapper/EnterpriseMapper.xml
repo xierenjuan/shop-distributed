@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.maven.goods.dao.EnterpriseMapper" >
+  <resultMap id="BaseResultMap" type="com.test.common.entity.Enterprise" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="dr" property="dr" jdbcType="BIT" />
+    <result column="merchant_id" property="merchantId" jdbcType="CHAR" />
+    <result column="industry_id" property="industryId" jdbcType="CHAR" />
+    <result column="mer_full_name" property="merFullName" jdbcType="VARCHAR" />
+    <result column="mer_short_name" property="merShortName" jdbcType="VARCHAR" />
+    <result column="mer_cert_no" property="merCertNo" jdbcType="VARCHAR" />
+    <result column="mer_cert_type" property="merCertType" jdbcType="VARCHAR" />
+    <result column="legal_name" property="legalName" jdbcType="VARCHAR" />
+    <result column="legal_id_card" property="legalIdCard" jdbcType="VARCHAR" />
+    <result column="mer_contact_name" property="merContactName" jdbcType="VARCHAR" />
+    <result column="mer_contact_phone" property="merContactPhone" jdbcType="VARCHAR" />
+    <result column="mer_contact_email" property="merContactEmail" jdbcType="VARCHAR" />
+    <result column="mer_level1_no" property="merLevel1No" jdbcType="VARCHAR" />
+    <result column="mer_level2_no" property="merLevel2No" jdbcType="VARCHAR" />
+    <result column="mer_province" property="merProvince" jdbcType="VARCHAR" />
+    <result column="mer_city" property="merCity" jdbcType="VARCHAR" />
+    <result column="mer_district" property="merDistrict" jdbcType="VARCHAR" />
+    <result column="mer_address" property="merAddress" jdbcType="VARCHAR" />
+    <result column="tax_regist_cert" property="taxRegistCert" jdbcType="VARCHAR" />
+    <result column="account_license" property="accountLicense" jdbcType="VARCHAR" />
+    <result column="org_code" property="orgCode" jdbcType="VARCHAR" />
+    <result column="org_code_expiry" property="orgCodeExpiry" jdbcType="VARCHAR" />
+    <result column="is_org_code_long" property="isOrgCodeLong" jdbcType="BIT" />
+    <result column="card_no" property="cardNo" jdbcType="VARCHAR" />
+    <result column="head_bank_code" property="headBankCode" jdbcType="VARCHAR" />
+    <result column="bank_code" property="bankCode" jdbcType="VARCHAR" />
+    <result column="bank_province" property="bankProvince" jdbcType="VARCHAR" />
+    <result column="bank_city" property="bankCity" jdbcType="VARCHAR" />
+    <result column="product_info" property="productInfo" jdbcType="VARCHAR" />
+    <result column="file_info" property="fileInfo" jdbcType="VARCHAR" />
+    <result column="request_no" property="requestNo" jdbcType="VARCHAR" />
+    <result column="parent_merchant_no" property="parentMerchantNo" jdbcType="VARCHAR" />
+    <result column="notify_url" property="notifyUrl" jdbcType="VARCHAR" />
+    <result column="mer_authorize_type" property="merAuthorizeType" jdbcType="VARCHAR" />
+    <result column="business_function" property="businessFunction" jdbcType="VARCHAR" />
+    <result column="enter_type" property="enterType" jdbcType="CHAR" />
+    <result column="mer_legal_phone" property="merLegalPhone" jdbcType="VARCHAR" />
+    <result column="mer_legal_email" property="merLegalEmail" jdbcType="VARCHAR" />
+    <result column="mer_scope" property="merScope" jdbcType="VARCHAR" />
+    <result column="enter_status" property="enterStatus" jdbcType="CHAR" />
+    <result column="area_id" property="areaId" jdbcType="CHAR" />
+    <result column="area_address" property="areaAddress" jdbcType="VARCHAR" />
+    <result column="account_type" property="accountType" jdbcType="CHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="bank_code_name" property="bankCodeName" jdbcType="VARCHAR" />
+    <result column="merchant_no" property="merchantNo" jdbcType="CHAR" />
+    <result column="channel_id" property="channelId" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, create_date, update_date, dr, merchant_id, industry_id, mer_full_name, mer_short_name, 
+    mer_cert_no, mer_cert_type, legal_name, legal_id_card, mer_contact_name, mer_contact_phone, 
+    mer_contact_email, mer_level1_no, mer_level2_no, mer_province, mer_city, mer_district, 
+    mer_address, tax_regist_cert, account_license, org_code, org_code_expiry, is_org_code_long, 
+    card_no, head_bank_code, bank_code, bank_province, bank_city, product_info, file_info, 
+    request_no, parent_merchant_no, notify_url, mer_authorize_type, business_function, 
+    enter_type, mer_legal_phone, mer_legal_email, mer_scope, enter_status, area_id, area_address, 
+    account_type, account_name, bank_code_name, merchant_no, channel_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.test.common.entity.EnterpriseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from enterprise
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from enterprise
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.test.common.entity.EnterpriseExample" >
+    delete from enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.test.common.entity.Enterprise" >
+    insert into enterprise (id, create_date, update_date, 
+      dr, merchant_id, industry_id, mer_full_name, 
+      mer_short_name, mer_cert_no, mer_cert_type, 
+      legal_name, legal_id_card, mer_contact_name, 
+      mer_contact_phone, mer_contact_email, mer_level1_no, 
+      mer_level2_no, mer_province, mer_city, 
+      mer_district, mer_address, tax_regist_cert, 
+      account_license, org_code, org_code_expiry, 
+      is_org_code_long, card_no, head_bank_code, 
+      bank_code, bank_province, bank_city, 
+      product_info, file_info, request_no, 
+      parent_merchant_no, notify_url, mer_authorize_type, 
+      business_function, enter_type, mer_legal_phone, 
+      mer_legal_email, mer_scope, enter_status, 
+      area_id, area_address, account_type, 
+      account_name, bank_code_name, merchant_no, 
+      channel_id)
+    values (#{id,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{dr,jdbcType=BIT}, #{merchantId,jdbcType=CHAR}, #{industryId,jdbcType=CHAR}, #{merFullName,jdbcType=VARCHAR}, 
+      #{merShortName,jdbcType=VARCHAR}, #{merCertNo,jdbcType=VARCHAR}, #{merCertType,jdbcType=VARCHAR}, 
+      #{legalName,jdbcType=VARCHAR}, #{legalIdCard,jdbcType=VARCHAR}, #{merContactName,jdbcType=VARCHAR}, 
+      #{merContactPhone,jdbcType=VARCHAR}, #{merContactEmail,jdbcType=VARCHAR}, #{merLevel1No,jdbcType=VARCHAR}, 
+      #{merLevel2No,jdbcType=VARCHAR}, #{merProvince,jdbcType=VARCHAR}, #{merCity,jdbcType=VARCHAR}, 
+      #{merDistrict,jdbcType=VARCHAR}, #{merAddress,jdbcType=VARCHAR}, #{taxRegistCert,jdbcType=VARCHAR}, 
+      #{accountLicense,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{orgCodeExpiry,jdbcType=VARCHAR}, 
+      #{isOrgCodeLong,jdbcType=BIT}, #{cardNo,jdbcType=VARCHAR}, #{headBankCode,jdbcType=VARCHAR}, 
+      #{bankCode,jdbcType=VARCHAR}, #{bankProvince,jdbcType=VARCHAR}, #{bankCity,jdbcType=VARCHAR}, 
+      #{productInfo,jdbcType=VARCHAR}, #{fileInfo,jdbcType=VARCHAR}, #{requestNo,jdbcType=VARCHAR}, 
+      #{parentMerchantNo,jdbcType=VARCHAR}, #{notifyUrl,jdbcType=VARCHAR}, #{merAuthorizeType,jdbcType=VARCHAR}, 
+      #{businessFunction,jdbcType=VARCHAR}, #{enterType,jdbcType=CHAR}, #{merLegalPhone,jdbcType=VARCHAR}, 
+      #{merLegalEmail,jdbcType=VARCHAR}, #{merScope,jdbcType=VARCHAR}, #{enterStatus,jdbcType=CHAR}, 
+      #{areaId,jdbcType=CHAR}, #{areaAddress,jdbcType=VARCHAR}, #{accountType,jdbcType=CHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{bankCodeName,jdbcType=VARCHAR}, #{merchantNo,jdbcType=CHAR}, 
+      #{channelId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.common.entity.Enterprise" >
+    insert into enterprise
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="dr != null" >
+        dr,
+      </if>
+      <if test="merchantId != null" >
+        merchant_id,
+      </if>
+      <if test="industryId != null" >
+        industry_id,
+      </if>
+      <if test="merFullName != null" >
+        mer_full_name,
+      </if>
+      <if test="merShortName != null" >
+        mer_short_name,
+      </if>
+      <if test="merCertNo != null" >
+        mer_cert_no,
+      </if>
+      <if test="merCertType != null" >
+        mer_cert_type,
+      </if>
+      <if test="legalName != null" >
+        legal_name,
+      </if>
+      <if test="legalIdCard != null" >
+        legal_id_card,
+      </if>
+      <if test="merContactName != null" >
+        mer_contact_name,
+      </if>
+      <if test="merContactPhone != null" >
+        mer_contact_phone,
+      </if>
+      <if test="merContactEmail != null" >
+        mer_contact_email,
+      </if>
+      <if test="merLevel1No != null" >
+        mer_level1_no,
+      </if>
+      <if test="merLevel2No != null" >
+        mer_level2_no,
+      </if>
+      <if test="merProvince != null" >
+        mer_province,
+      </if>
+      <if test="merCity != null" >
+        mer_city,
+      </if>
+      <if test="merDistrict != null" >
+        mer_district,
+      </if>
+      <if test="merAddress != null" >
+        mer_address,
+      </if>
+      <if test="taxRegistCert != null" >
+        tax_regist_cert,
+      </if>
+      <if test="accountLicense != null" >
+        account_license,
+      </if>
+      <if test="orgCode != null" >
+        org_code,
+      </if>
+      <if test="orgCodeExpiry != null" >
+        org_code_expiry,
+      </if>
+      <if test="isOrgCodeLong != null" >
+        is_org_code_long,
+      </if>
+      <if test="cardNo != null" >
+        card_no,
+      </if>
+      <if test="headBankCode != null" >
+        head_bank_code,
+      </if>
+      <if test="bankCode != null" >
+        bank_code,
+      </if>
+      <if test="bankProvince != null" >
+        bank_province,
+      </if>
+      <if test="bankCity != null" >
+        bank_city,
+      </if>
+      <if test="productInfo != null" >
+        product_info,
+      </if>
+      <if test="fileInfo != null" >
+        file_info,
+      </if>
+      <if test="requestNo != null" >
+        request_no,
+      </if>
+      <if test="parentMerchantNo != null" >
+        parent_merchant_no,
+      </if>
+      <if test="notifyUrl != null" >
+        notify_url,
+      </if>
+      <if test="merAuthorizeType != null" >
+        mer_authorize_type,
+      </if>
+      <if test="businessFunction != null" >
+        business_function,
+      </if>
+      <if test="enterType != null" >
+        enter_type,
+      </if>
+      <if test="merLegalPhone != null" >
+        mer_legal_phone,
+      </if>
+      <if test="merLegalEmail != null" >
+        mer_legal_email,
+      </if>
+      <if test="merScope != null" >
+        mer_scope,
+      </if>
+      <if test="enterStatus != null" >
+        enter_status,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="areaAddress != null" >
+        area_address,
+      </if>
+      <if test="accountType != null" >
+        account_type,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="bankCodeName != null" >
+        bank_code_name,
+      </if>
+      <if test="merchantNo != null" >
+        merchant_no,
+      </if>
+      <if test="channelId != null" >
+        channel_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dr != null" >
+        #{dr,jdbcType=BIT},
+      </if>
+      <if test="merchantId != null" >
+        #{merchantId,jdbcType=CHAR},
+      </if>
+      <if test="industryId != null" >
+        #{industryId,jdbcType=CHAR},
+      </if>
+      <if test="merFullName != null" >
+        #{merFullName,jdbcType=VARCHAR},
+      </if>
+      <if test="merShortName != null" >
+        #{merShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="merCertNo != null" >
+        #{merCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merCertType != null" >
+        #{merCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null" >
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdCard != null" >
+        #{legalIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="merContactName != null" >
+        #{merContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="merContactPhone != null" >
+        #{merContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="merContactEmail != null" >
+        #{merContactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="merLevel1No != null" >
+        #{merLevel1No,jdbcType=VARCHAR},
+      </if>
+      <if test="merLevel2No != null" >
+        #{merLevel2No,jdbcType=VARCHAR},
+      </if>
+      <if test="merProvince != null" >
+        #{merProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="merCity != null" >
+        #{merCity,jdbcType=VARCHAR},
+      </if>
+      <if test="merDistrict != null" >
+        #{merDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="merAddress != null" >
+        #{merAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRegistCert != null" >
+        #{taxRegistCert,jdbcType=VARCHAR},
+      </if>
+      <if test="accountLicense != null" >
+        #{accountLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCodeExpiry != null" >
+        #{orgCodeExpiry,jdbcType=VARCHAR},
+      </if>
+      <if test="isOrgCodeLong != null" >
+        #{isOrgCodeLong,jdbcType=BIT},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="headBankCode != null" >
+        #{headBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null" >
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankProvince != null" >
+        #{bankProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCity != null" >
+        #{bankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="productInfo != null" >
+        #{productInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="fileInfo != null" >
+        #{fileInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="requestNo != null" >
+        #{requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentMerchantNo != null" >
+        #{parentMerchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null" >
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="merAuthorizeType != null" >
+        #{merAuthorizeType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessFunction != null" >
+        #{businessFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="enterType != null" >
+        #{enterType,jdbcType=CHAR},
+      </if>
+      <if test="merLegalPhone != null" >
+        #{merLegalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="merLegalEmail != null" >
+        #{merLegalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="merScope != null" >
+        #{merScope,jdbcType=VARCHAR},
+      </if>
+      <if test="enterStatus != null" >
+        #{enterStatus,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="areaAddress != null" >
+        #{areaAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=CHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCodeName != null" >
+        #{bankCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNo != null" >
+        #{merchantNo,jdbcType=CHAR},
+      </if>
+      <if test="channelId != null" >
+        #{channelId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.test.common.entity.EnterpriseExample" resultType="java.lang.Integer" >
+    select count(*) from enterprise
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update enterprise
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=CHAR},
+      </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dr != null" >
+        dr = #{record.dr,jdbcType=BIT},
+      </if>
+      <if test="record.merchantId != null" >
+        merchant_id = #{record.merchantId,jdbcType=CHAR},
+      </if>
+      <if test="record.industryId != null" >
+        industry_id = #{record.industryId,jdbcType=CHAR},
+      </if>
+      <if test="record.merFullName != null" >
+        mer_full_name = #{record.merFullName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merShortName != null" >
+        mer_short_name = #{record.merShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merCertNo != null" >
+        mer_cert_no = #{record.merCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merCertType != null" >
+        mer_cert_type = #{record.merCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalName != null" >
+        legal_name = #{record.legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalIdCard != null" >
+        legal_id_card = #{record.legalIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merContactName != null" >
+        mer_contact_name = #{record.merContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merContactPhone != null" >
+        mer_contact_phone = #{record.merContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merContactEmail != null" >
+        mer_contact_email = #{record.merContactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merLevel1No != null" >
+        mer_level1_no = #{record.merLevel1No,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merLevel2No != null" >
+        mer_level2_no = #{record.merLevel2No,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merProvince != null" >
+        mer_province = #{record.merProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merCity != null" >
+        mer_city = #{record.merCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merDistrict != null" >
+        mer_district = #{record.merDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merAddress != null" >
+        mer_address = #{record.merAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxRegistCert != null" >
+        tax_regist_cert = #{record.taxRegistCert,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountLicense != null" >
+        account_license = #{record.accountLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgCode != null" >
+        org_code = #{record.orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgCodeExpiry != null" >
+        org_code_expiry = #{record.orgCodeExpiry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isOrgCodeLong != null" >
+        is_org_code_long = #{record.isOrgCodeLong,jdbcType=BIT},
+      </if>
+      <if test="record.cardNo != null" >
+        card_no = #{record.cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headBankCode != null" >
+        head_bank_code = #{record.headBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCode != null" >
+        bank_code = #{record.bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankProvince != null" >
+        bank_province = #{record.bankProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCity != null" >
+        bank_city = #{record.bankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productInfo != null" >
+        product_info = #{record.productInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileInfo != null" >
+        file_info = #{record.fileInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestNo != null" >
+        request_no = #{record.requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentMerchantNo != null" >
+        parent_merchant_no = #{record.parentMerchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.notifyUrl != null" >
+        notify_url = #{record.notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merAuthorizeType != null" >
+        mer_authorize_type = #{record.merAuthorizeType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessFunction != null" >
+        business_function = #{record.businessFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterType != null" >
+        enter_type = #{record.enterType,jdbcType=CHAR},
+      </if>
+      <if test="record.merLegalPhone != null" >
+        mer_legal_phone = #{record.merLegalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merLegalEmail != null" >
+        mer_legal_email = #{record.merLegalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merScope != null" >
+        mer_scope = #{record.merScope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterStatus != null" >
+        enter_status = #{record.enterStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.areaId != null" >
+        area_id = #{record.areaId,jdbcType=CHAR},
+      </if>
+      <if test="record.areaAddress != null" >
+        area_address = #{record.areaAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountType != null" >
+        account_type = #{record.accountType,jdbcType=CHAR},
+      </if>
+      <if test="record.accountName != null" >
+        account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankCodeName != null" >
+        bank_code_name = #{record.bankCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantNo != null" >
+        merchant_no = #{record.merchantNo,jdbcType=CHAR},
+      </if>
+      <if test="record.channelId != null" >
+        channel_id = #{record.channelId,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update enterprise
+    set id = #{record.id,jdbcType=CHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      dr = #{record.dr,jdbcType=BIT},
+      merchant_id = #{record.merchantId,jdbcType=CHAR},
+      industry_id = #{record.industryId,jdbcType=CHAR},
+      mer_full_name = #{record.merFullName,jdbcType=VARCHAR},
+      mer_short_name = #{record.merShortName,jdbcType=VARCHAR},
+      mer_cert_no = #{record.merCertNo,jdbcType=VARCHAR},
+      mer_cert_type = #{record.merCertType,jdbcType=VARCHAR},
+      legal_name = #{record.legalName,jdbcType=VARCHAR},
+      legal_id_card = #{record.legalIdCard,jdbcType=VARCHAR},
+      mer_contact_name = #{record.merContactName,jdbcType=VARCHAR},
+      mer_contact_phone = #{record.merContactPhone,jdbcType=VARCHAR},
+      mer_contact_email = #{record.merContactEmail,jdbcType=VARCHAR},
+      mer_level1_no = #{record.merLevel1No,jdbcType=VARCHAR},
+      mer_level2_no = #{record.merLevel2No,jdbcType=VARCHAR},
+      mer_province = #{record.merProvince,jdbcType=VARCHAR},
+      mer_city = #{record.merCity,jdbcType=VARCHAR},
+      mer_district = #{record.merDistrict,jdbcType=VARCHAR},
+      mer_address = #{record.merAddress,jdbcType=VARCHAR},
+      tax_regist_cert = #{record.taxRegistCert,jdbcType=VARCHAR},
+      account_license = #{record.accountLicense,jdbcType=VARCHAR},
+      org_code = #{record.orgCode,jdbcType=VARCHAR},
+      org_code_expiry = #{record.orgCodeExpiry,jdbcType=VARCHAR},
+      is_org_code_long = #{record.isOrgCodeLong,jdbcType=BIT},
+      card_no = #{record.cardNo,jdbcType=VARCHAR},
+      head_bank_code = #{record.headBankCode,jdbcType=VARCHAR},
+      bank_code = #{record.bankCode,jdbcType=VARCHAR},
+      bank_province = #{record.bankProvince,jdbcType=VARCHAR},
+      bank_city = #{record.bankCity,jdbcType=VARCHAR},
+      product_info = #{record.productInfo,jdbcType=VARCHAR},
+      file_info = #{record.fileInfo,jdbcType=VARCHAR},
+      request_no = #{record.requestNo,jdbcType=VARCHAR},
+      parent_merchant_no = #{record.parentMerchantNo,jdbcType=VARCHAR},
+      notify_url = #{record.notifyUrl,jdbcType=VARCHAR},
+      mer_authorize_type = #{record.merAuthorizeType,jdbcType=VARCHAR},
+      business_function = #{record.businessFunction,jdbcType=VARCHAR},
+      enter_type = #{record.enterType,jdbcType=CHAR},
+      mer_legal_phone = #{record.merLegalPhone,jdbcType=VARCHAR},
+      mer_legal_email = #{record.merLegalEmail,jdbcType=VARCHAR},
+      mer_scope = #{record.merScope,jdbcType=VARCHAR},
+      enter_status = #{record.enterStatus,jdbcType=CHAR},
+      area_id = #{record.areaId,jdbcType=CHAR},
+      area_address = #{record.areaAddress,jdbcType=VARCHAR},
+      account_type = #{record.accountType,jdbcType=CHAR},
+      account_name = #{record.accountName,jdbcType=VARCHAR},
+      bank_code_name = #{record.bankCodeName,jdbcType=VARCHAR},
+      merchant_no = #{record.merchantNo,jdbcType=CHAR},
+      channel_id = #{record.channelId,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.common.entity.Enterprise" >
+    update enterprise
+    <set >
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dr != null" >
+        dr = #{dr,jdbcType=BIT},
+      </if>
+      <if test="merchantId != null" >
+        merchant_id = #{merchantId,jdbcType=CHAR},
+      </if>
+      <if test="industryId != null" >
+        industry_id = #{industryId,jdbcType=CHAR},
+      </if>
+      <if test="merFullName != null" >
+        mer_full_name = #{merFullName,jdbcType=VARCHAR},
+      </if>
+      <if test="merShortName != null" >
+        mer_short_name = #{merShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="merCertNo != null" >
+        mer_cert_no = #{merCertNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merCertType != null" >
+        mer_cert_type = #{merCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null" >
+        legal_name = #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdCard != null" >
+        legal_id_card = #{legalIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="merContactName != null" >
+        mer_contact_name = #{merContactName,jdbcType=VARCHAR},
+      </if>
+      <if test="merContactPhone != null" >
+        mer_contact_phone = #{merContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="merContactEmail != null" >
+        mer_contact_email = #{merContactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="merLevel1No != null" >
+        mer_level1_no = #{merLevel1No,jdbcType=VARCHAR},
+      </if>
+      <if test="merLevel2No != null" >
+        mer_level2_no = #{merLevel2No,jdbcType=VARCHAR},
+      </if>
+      <if test="merProvince != null" >
+        mer_province = #{merProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="merCity != null" >
+        mer_city = #{merCity,jdbcType=VARCHAR},
+      </if>
+      <if test="merDistrict != null" >
+        mer_district = #{merDistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="merAddress != null" >
+        mer_address = #{merAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRegistCert != null" >
+        tax_regist_cert = #{taxRegistCert,jdbcType=VARCHAR},
+      </if>
+      <if test="accountLicense != null" >
+        account_license = #{accountLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCodeExpiry != null" >
+        org_code_expiry = #{orgCodeExpiry,jdbcType=VARCHAR},
+      </if>
+      <if test="isOrgCodeLong != null" >
+        is_org_code_long = #{isOrgCodeLong,jdbcType=BIT},
+      </if>
+      <if test="cardNo != null" >
+        card_no = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="headBankCode != null" >
+        head_bank_code = #{headBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null" >
+        bank_code = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankProvince != null" >
+        bank_province = #{bankProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCity != null" >
+        bank_city = #{bankCity,jdbcType=VARCHAR},
+      </if>
+      <if test="productInfo != null" >
+        product_info = #{productInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="fileInfo != null" >
+        file_info = #{fileInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="requestNo != null" >
+        request_no = #{requestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentMerchantNo != null" >
+        parent_merchant_no = #{parentMerchantNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null" >
+        notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="merAuthorizeType != null" >
+        mer_authorize_type = #{merAuthorizeType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessFunction != null" >
+        business_function = #{businessFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="enterType != null" >
+        enter_type = #{enterType,jdbcType=CHAR},
+      </if>
+      <if test="merLegalPhone != null" >
+        mer_legal_phone = #{merLegalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="merLegalEmail != null" >
+        mer_legal_email = #{merLegalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="merScope != null" >
+        mer_scope = #{merScope,jdbcType=VARCHAR},
+      </if>
+      <if test="enterStatus != null" >
+        enter_status = #{enterStatus,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="areaAddress != null" >
+        area_address = #{areaAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        account_type = #{accountType,jdbcType=CHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCodeName != null" >
+        bank_code_name = #{bankCodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantNo != null" >
+        merchant_no = #{merchantNo,jdbcType=CHAR},
+      </if>
+      <if test="channelId != null" >
+        channel_id = #{channelId,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.common.entity.Enterprise" >
+    update enterprise
+    set create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      dr = #{dr,jdbcType=BIT},
+      merchant_id = #{merchantId,jdbcType=CHAR},
+      industry_id = #{industryId,jdbcType=CHAR},
+      mer_full_name = #{merFullName,jdbcType=VARCHAR},
+      mer_short_name = #{merShortName,jdbcType=VARCHAR},
+      mer_cert_no = #{merCertNo,jdbcType=VARCHAR},
+      mer_cert_type = #{merCertType,jdbcType=VARCHAR},
+      legal_name = #{legalName,jdbcType=VARCHAR},
+      legal_id_card = #{legalIdCard,jdbcType=VARCHAR},
+      mer_contact_name = #{merContactName,jdbcType=VARCHAR},
+      mer_contact_phone = #{merContactPhone,jdbcType=VARCHAR},
+      mer_contact_email = #{merContactEmail,jdbcType=VARCHAR},
+      mer_level1_no = #{merLevel1No,jdbcType=VARCHAR},
+      mer_level2_no = #{merLevel2No,jdbcType=VARCHAR},
+      mer_province = #{merProvince,jdbcType=VARCHAR},
+      mer_city = #{merCity,jdbcType=VARCHAR},
+      mer_district = #{merDistrict,jdbcType=VARCHAR},
+      mer_address = #{merAddress,jdbcType=VARCHAR},
+      tax_regist_cert = #{taxRegistCert,jdbcType=VARCHAR},
+      account_license = #{accountLicense,jdbcType=VARCHAR},
+      org_code = #{orgCode,jdbcType=VARCHAR},
+      org_code_expiry = #{orgCodeExpiry,jdbcType=VARCHAR},
+      is_org_code_long = #{isOrgCodeLong,jdbcType=BIT},
+      card_no = #{cardNo,jdbcType=VARCHAR},
+      head_bank_code = #{headBankCode,jdbcType=VARCHAR},
+      bank_code = #{bankCode,jdbcType=VARCHAR},
+      bank_province = #{bankProvince,jdbcType=VARCHAR},
+      bank_city = #{bankCity,jdbcType=VARCHAR},
+      product_info = #{productInfo,jdbcType=VARCHAR},
+      file_info = #{fileInfo,jdbcType=VARCHAR},
+      request_no = #{requestNo,jdbcType=VARCHAR},
+      parent_merchant_no = #{parentMerchantNo,jdbcType=VARCHAR},
+      notify_url = #{notifyUrl,jdbcType=VARCHAR},
+      mer_authorize_type = #{merAuthorizeType,jdbcType=VARCHAR},
+      business_function = #{businessFunction,jdbcType=VARCHAR},
+      enter_type = #{enterType,jdbcType=CHAR},
+      mer_legal_phone = #{merLegalPhone,jdbcType=VARCHAR},
+      mer_legal_email = #{merLegalEmail,jdbcType=VARCHAR},
+      mer_scope = #{merScope,jdbcType=VARCHAR},
+      enter_status = #{enterStatus,jdbcType=CHAR},
+      area_id = #{areaId,jdbcType=CHAR},
+      area_address = #{areaAddress,jdbcType=VARCHAR},
+      account_type = #{accountType,jdbcType=CHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      bank_code_name = #{bankCodeName,jdbcType=VARCHAR},
+      merchant_no = #{merchantNo,jdbcType=CHAR},
+      channel_id = #{channelId,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
