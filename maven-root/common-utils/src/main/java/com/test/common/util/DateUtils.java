@@ -12,9 +12,13 @@ public class DateUtils {
 	public static String ynd = "yyyy-MM-dd";
 	public static String hms = "HHmmss";
 
-
-	public static Date dateToYMD(Date date){
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	/**
+	 * 获取传入日期的年月日日期
+	 * @param date   2011-11-11 11:11:11
+	 * @return  20111-11-11
+	 */
+	public static Date dateToDateYMD(Date date){
+		DateFormat dateFormat = new SimpleDateFormat(ynd);
 		String nowdayTime = dateFormat.format(date);
 		try {
 			Date nowDate = dateFormat.parse(nowdayTime);
@@ -26,15 +30,22 @@ public class DateUtils {
 	}
 
 	/**
-	 * @param date
-	 * @return
+	 * 获取传入日期的   时分秒
+	 * @param date   2019-11-11 12:11:11
+	 * @return  121111
 	 */
-	public static String dateToHMS(Date date) {
+	public static String dateToStringHMS(Date date) {
 		SimpleDateFormat formatter = new SimpleDateFormat(hms);
 		String dateString = formatter.format(date);
 		return dateString;
 	}
-	public static String dateToStr(Date date) {
+
+	/**
+	 *
+	 * @param date
+	 * @return
+	 */
+	public static String dateToString(Date date) {
 		SimpleDateFormat formatter = new SimpleDateFormat(strDefault);
 		String dateString = formatter.format(date);
 		return dateString;
@@ -71,33 +82,6 @@ public class DateUtils {
 				23, 59, 59);
 		Date d = calendarStart.getTime();
 		return d;
-	}
-
-
-	//获取年月日 时分秒的字符串
-	public static String getYMDHMS() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String format = sdf.format(new Date().getTime());
-		return format;
-	}
-
-	//获取时分秒的字符串
-	public static String getHMS() {
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		String format = sdf.format(new Date().getTime());
-		return format;
-	}
-
-	/**
-	 * 获取当前日期，  如：2019/12/12
-	 *
-	 * @return
-	 */
-	public static String getYMD() {
-		Date d = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		String dateNowStr = sdf.format(d);
-		return dateNowStr;
 	}
 
 	/**
