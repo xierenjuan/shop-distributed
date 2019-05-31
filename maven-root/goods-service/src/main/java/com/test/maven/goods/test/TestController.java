@@ -1,8 +1,7 @@
-package com.test.maven.goods.controller.test;
+package com.test.maven.goods.test;
 
 import com.alibaba.fastjson.JSONObject;
 import com.test.common.entity.Enterprise;
-import com.test.common.entity.Goods;
 import com.test.common.result.CommonResult;
 import com.test.maven.goods.lock.DistributedLockHandler;
 import com.test.maven.goods.lock.RedisDistributionLock;
@@ -26,11 +25,9 @@ import java.util.concurrent.TimeUnit;
 @Api(value = "测试相关")
 @RestController
 @RequestMapping("test")
-public class Test1 {
+public class TestController {
 
     public static void main(String[] args) {
-        FanXing fx = new FXImpl<Integer>();
-//        fx
     }
 
     @Autowired
