@@ -1,6 +1,5 @@
 package com.test.maven.goods.designpatterns.原型模式;
 
-import com.hs.commons.utils.HttpUtils;
 
 public class Client {
     /**
@@ -19,15 +18,4 @@ public class Client {
         
     }
 
-    public static void main(String[] args) {
-        Thread t = new Thread(() -> {
-            for (int i = 0; i < 100; i++){
-                String s = HttpUtils.get("https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date=2019-06-12&leftTicketDTO.from_station=CDW&leftTicketDTO.to_station=SZQ&purpose_codes=ADULT", null);
-                System.out.println(s);
-
-            }
-        });
-        t.start();
-        System.out.println("执行中");
-    }
 }
