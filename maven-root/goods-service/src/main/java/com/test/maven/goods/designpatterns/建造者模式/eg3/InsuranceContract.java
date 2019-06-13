@@ -32,7 +32,7 @@ public class InsuranceContract {
      * 保险合同的一些操作
      */
     public void someOperation(){
-        System.out.println("当前正在操作的保险合同编号为【"+this.contractId+"】");
+        System.out.println("当前正在操作的保险合同编号为【"+this.contractId+"】,其他信息:" + this.otherData);
     }
 
     public static class ConcreteBuilder{
