@@ -16,7 +16,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private GoodsMapper goodsMapper;
 
+    public static void tets03(List<? extends Number> list){
+        System.out.println("泛型方法6");
 
+    }
     @Override
     @Transactional
     public void insert(Goods goods) {
@@ -25,6 +28,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> list() {
-        return goodsMapper.selectByExample(new GoodsExample());
+        GoodsExample goodsExample = new GoodsExample();
+        GoodsExample.Criteria criteria = goodsExample.createCriteria();
+        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        GoodsExample.Criteria criteria1 = criteria.andIdEqualTo(1L);
+        return goodsMapper.selectByExample(goodsExample);
     }
 }
