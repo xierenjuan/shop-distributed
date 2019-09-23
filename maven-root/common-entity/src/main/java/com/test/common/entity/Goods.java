@@ -6,6 +6,8 @@ public class Goods {
      */
     private Long id;
 
+    private String abc;
+
     /**
      * 
      */
@@ -15,6 +17,15 @@ public class Goods {
      * 
      */
     private Boolean putaway;
+
+
+    public String getAbc() {
+        return abc;
+    }
+
+    public void setAbc(String abc) {
+        this.abc = abc;
+    }
 
     /**
      * 

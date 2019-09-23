@@ -2,7 +2,11 @@ package com.test.maven.goods.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.test.common.entity.Enterprise;
+import com.test.common.entity.Goods;
 import com.test.common.result.CommonResult;
+import com.test.common.util.MD5Util;
+import com.test.common.util.MapUtil;
+import com.test.common.util.SignUtil;
 import com.test.maven.goods.lock.DistributedLockHandler;
 import com.test.maven.goods.lock.RedisDistributionLock;
 import com.test.maven.goods.repositorydao.EnterpriseRespository;
@@ -34,6 +38,17 @@ import java.util.concurrent.TimeUnit;
 public class TestController {
 
     public static void main(String[] args) {
+        Goods goods = new Goods();
+        goods.setId(1L);
+        goods.setName("name");
+        goods.setAbc("dddsd");
+        goods.setPutaway(false);
+//         String originStr = "abc=dddsd&id=1&name=name&putaway=false&appKey=123456";
+//        System.out.println(MD5Util.md5(originStr,"utf-8")); // sign = 559A7F5058264B7B1AABAA0CF740BF55
+//        System.out.println(MD5Util.getStringWaitSign(MapUtil.objectToMap(goods),"123456"));
+
+        boolean b = SignUtil.checkSign("559A7F5058264B7B1AABAA0CF740BF55", MD5Util.getStringWaitSign(MapUtil.objectToMap(goods), "123456"));
+        System.out.println(b);
     }
 
     @Autowired
@@ -105,4 +120,6 @@ public class TestController {
 
         return CommonResult.getFaiInstance("1001","没有权限");
     }
+
+
 }
