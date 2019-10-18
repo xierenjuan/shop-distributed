@@ -13,6 +13,8 @@ import com.test.maven.goods.repositorydao.EnterpriseRespository;
 import com.test.maven.goods.repositoryentity.EnterpriseElastic;
 import com.test.maven.goods.service.EnterpriseService;
 import com.test.maven.goods.util.BeanUtils;
+import com.test.maven.goods.util.ExportEntity1;
+import com.test.maven.goods.util.ExportUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
@@ -27,7 +29,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
+import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -121,5 +126,23 @@ public class TestController {
         return CommonResult.getFaiInstance("1001","没有权限");
     }
 
+
+    @ApiOperation(value = "导出")
+    @GetMapping("/exportUtil")
+    public void exportUtil(HttpServletResponse response) {
+        String fileName = "测试文件.xls";
+        String[] sheetNames = {"sheet1","sheet2"};
+        String[] title = {"长度","名称","金额","生日"};
+        String[] title2 = {"长度","名称","金额","生日"};
+        List<String[]> titles = new ArrayList<>(); titles.add(title); titles.add(title2);
+        List<List<?>> datas = new ArrayList<>();
+        List<ExportEntity1> data = new ArrayList<>();
+        data.add(new ExportEntity1("名称", BigDecimal.ZERO,new Date(),1));
+        List<ExportEntity1> data2 = new ArrayList<>();
+        data2.add(new ExportEntity1("名称2", new BigDecimal(10),new Date(),2));
+        datas.add(data);
+        datas.add(data2);
+        ExportUtil.export(fileName,sheetNames,titles,datas,response);
+    }
 
 }
