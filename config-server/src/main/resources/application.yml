@@ -6,7 +6,7 @@ spring:
           uri: git@github.com:xierenjuan/spring-cloud.git
           search-paths: configdir # 搜索路径
           username: xierenjun
-          password: longyao88
+          password: 111111
   application:
     name: config-server
   profiles:
