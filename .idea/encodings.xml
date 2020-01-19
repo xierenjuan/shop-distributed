@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/goods-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/api-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/common-entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/common-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/goods-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/message-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/maven-root/zuul-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/message-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zuul-server" charset="UTF-8" />
+  </component>
+</project>
