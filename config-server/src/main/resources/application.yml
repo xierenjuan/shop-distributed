@@ -3,7 +3,7 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:xierenjuan/spring-cloud.git
+          uri: https://github.com/xierenjuan/spring-cloud.git
           search-paths: configdir # 搜索路径
           username: xierenjun
           password: longyao88
