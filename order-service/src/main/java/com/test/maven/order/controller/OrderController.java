@@ -1,11 +1,8 @@
 package com.test.maven.order.controller;
 
 
-import com.test.common.dto.GoodsDto;
-import com.test.common.entity.Order;
 import com.test.common.result.CommonResult;
-import com.test.maven.api.GoodsApi;
-import com.test.maven.order.service.OrderService;
+import com.test.maven.api.UserApi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,33 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Api("订单相关")
 @RestController
 @RequestMapping("order")
 public class OrderController {
-
     @Autowired
-    private OrderService orderService;
-    @Autowired
-    private GoodsApi goodsApi;
+    private UserApi userApi;
 
-    @ApiOperation("订单测试")
+    @ApiOperation("测试订单服务调用用户服务")
     @GetMapping("/test")
-    public CommonResult<List<GoodsDto>> test(){
-        Order order = new Order();
-        order.setId(1L);
-        order.setAmount(new BigDecimal("100"));
-//        orderService.insert(order);
-        List<GoodsDto> list = goodsApi.list(1);
-        return CommonResult.getSucceedInstance(list);
+    public CommonResult<Object> test(){
+        return CommonResult.getSucceedInstance(userApi.get(1L));
     }
 
-    @ApiOperation("订单测试2")
-    @GetMapping("/test2")
-    public CommonResult<Object> test2(){
-        return CommonResult.getSucceedInstance(orderService.list());
-    }
 }
