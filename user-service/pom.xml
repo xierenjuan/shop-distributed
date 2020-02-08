@@ -119,6 +119,12 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.vesion}</version>
         </dependency>
+
+        <!-- spring cloud-bus依赖实现配置自动更新，rabbitmq -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -6,11 +6,26 @@ spring:
           uri: https://github.com/xierenjuan/spring-cloud.git
           search-paths: configdir # 搜索路径
           username: xierenjun
-          password: longyao88
+          password: 11111
+    bus:
+      enabled: true #是否启用springcloud config bus
+      trace:
+        enabled: true # 开启跟踪总线事件
   application:
     name: config-server
   profiles:
     active: @profile.env@
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+#SpringCloud暴露接口，暴露/bus/refresh接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
 server:
   port: 6064
 eureka:
