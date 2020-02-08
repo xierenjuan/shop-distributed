@@ -6,7 +6,7 @@ spring:
           uri: https://github.com/xierenjuan/spring-cloud.git
           search-paths: configdir # 搜索路径
           username: xierenjun
-          password: 11111
+          password: longyao88
     bus:
       enabled: true #是否启用springcloud config bus
       trace:
