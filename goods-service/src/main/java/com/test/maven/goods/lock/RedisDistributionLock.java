@@ -42,13 +42,11 @@ public class RedisDistributionLock {
      */
     public boolean lock(String key, long expireTime) {
 
-//        logger.debug("redis lock debug, start. key:[{}], expireTime:[{}]",key,expireTime);
         long now = Instant.now().toEpochMilli();
         long lockExpireTime = now + expireTime;
 
         //setnx
         boolean executeResult = redisTemplate.opsForValue().setIfAbsent(key,String.valueOf(lockExpireTime));
-//        logger.debug("redis lock debug, setnx. key:[{}], expireTime:[{}], executeResult:[{}]", key, expireTime,executeResult);
 
         //取锁成功,为key设置expire
         if (executeResult == Success) {
@@ -62,16 +60,13 @@ public class RedisDistributionLock {
             if (valueFromRedis != null) {
                 //已存在的锁超时时间
                 long oldExpireTime = Long.parseLong((String)valueFromRedis);
-//                logger.debug("redis lock debug, key already seted. key:[{}], oldExpireTime:[{}]",key,oldExpireTime);
                 //锁过期时间小于当前时间,锁已经超时,重新取锁
                 if (oldExpireTime <= now) {
-//                    logger.debug("redis lock debug, lock time expired. key:[{}], oldExpireTime:[{}], now:[{}]", key, oldExpireTime, now);
                     String valueFromRedis2 = redisTemplate.opsForValue().getAndSet(key, String.valueOf(lockExpireTime));
                     long currentExpireTime = Long.parseLong(valueFromRedis2);
                     //判断currentExpireTime与oldExpireTime是否相等
                     if(currentExpireTime == oldExpireTime){
                         //相等,则取锁成功
-//                        logger.debug("redis lock debug, getSet. key:[{}], currentExpireTime:[{}], oldExpireTime:[{}], lockExpireTime:[{}]", key, currentExpireTime, oldExpireTime, lockExpireTime);
                         redisTemplate.expire(key, finalDefaultTTLwithKey, TimeUnit.SECONDS);
                         return true;
                     }else{
@@ -81,7 +76,6 @@ public class RedisDistributionLock {
                 }
             }
             else {
-//                logger.warn("redis lock,lock have been release. key:[{}]", key);
                 return false;
             }
         }

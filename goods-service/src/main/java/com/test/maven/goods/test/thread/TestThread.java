@@ -68,6 +68,7 @@ public class TestThread {
 //        }
 
 
+
          Thread t = new Thread(new Runnable() {
              @Override
              public void run() {
@@ -81,6 +82,7 @@ public class TestThread {
          });
          t.setName("t");
          t.start();
+
          Thread.sleep(10000);
         System.out.println("==========" + Thread.currentThread().getName());
          t.interrupt();

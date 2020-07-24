@@ -3,6 +3,13 @@ package com.test.maven.goods.suanfa;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * 两数之和
+ * @param ints {2,7,15,11}
+ * @param sum 22
+ * @return 得到7,15的索引  最终结果是  1,2
+ */
 public class TwoNumberAdd {
 
     public static int[] twoSum(int[] nums, int target) {
