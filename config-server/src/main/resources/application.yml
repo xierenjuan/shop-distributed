@@ -18,7 +18,7 @@ spring:
   rabbitmq:
     username: guest
     password: guest
-    host: localhost
+    host: 192.168.0.193
     port: 5672
 #SpringCloud暴露接口，暴露/bus/refresh接口
 management:

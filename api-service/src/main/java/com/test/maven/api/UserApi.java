@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
-@FeignClient(value = "user-service", url = "",configuration = FeignConfig.class)
+@FeignClient(value = "user-service", url = "",configuration = FeignConfig.class/*, fallback = MyFallBack.class*/)
 public interface UserApi {
 
     @RequestMapping(value = "get", method = RequestMethod.GET)

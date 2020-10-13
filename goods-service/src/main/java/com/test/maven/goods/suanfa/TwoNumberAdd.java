@@ -6,8 +6,8 @@ import java.util.Map;
 
 /**
  * 两数之和
- * @param ints {2,7,15,11}
- * @param sum 22
+ *  如下数组：{2,7,15,11}  得到 22
+ *
  * @return 得到7,15的索引  最终结果是  1,2
  */
 public class TwoNumberAdd {
