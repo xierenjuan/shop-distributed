@@ -14,16 +14,16 @@
     <version>${common-entity.version}</version>
 
     <dependencies>
-        <!-- swagger2 -->
+        <!-- swagger3 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.vesion}</version>
+            <version>${swagger3.vesion}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.vesion}</version>
+            <version>${swagger3.vesion}</version>
         </dependency>
         <!-- mybatis 分页 -->
         <dependency>
