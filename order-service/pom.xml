@@ -26,11 +26,6 @@
             <artifactId>common-utils</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.test.maven.service</groupId>
-            <artifactId>api-service</artifactId>
-            <version>1.0.0</version>
-        </dependency>
         <!--end  引用本地公共jar  end-->
 
         <dependency>
@@ -41,6 +36,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <!--配置中心（client）-->
         <dependency>

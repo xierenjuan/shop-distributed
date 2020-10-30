@@ -26,7 +26,6 @@
             <version>1.0.0</version>
         </dependency>
         <!--end  引用本地公共jar  end-->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

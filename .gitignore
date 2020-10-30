@@ -23,3 +23,9 @@
 /api-service/target/
 /.idea
 /logs/
+/shop-user/user-service/user-service.iml
+/shop-user/shop-user.iml
+/shop-user/user-api/user-api.iml
+/shop-goods/goods-service/goods-service.iml
+/shop-goods/shop-goods.iml
+/shop-goods/goods-api/goods-api.iml
