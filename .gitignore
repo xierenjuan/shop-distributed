@@ -29,3 +29,12 @@
 /shop-goods/goods-service/goods-service.iml
 /shop-goods/shop-goods.iml
 /shop-goods/goods-api/goods-api.iml
+/shop-goods/goods-service/target/
+/shop-goods/goods-api/target/
+/shop-user/user-api/target/
+/shop-user/user-service/target/
+/shop-order/order-service/order-service.iml
+/shop-order/shop-order.iml
+/shop-order/order-api/order-api.iml
+/shop-order/order-service/target/
+/shop-order/order-api/target/
