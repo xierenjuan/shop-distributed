@@ -1,4 +1,4 @@
-package com.test.maven.message.controller;
+package com.test.maven.message.server.controller;
 
 import com.test.common.result.CommonResult;
 import io.swagger.annotations.Api;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("message")
-@Api(value = "消息url")
+@Api(value = "消息Api")
 public class MessageController {
 
     @ApiOperation("test")

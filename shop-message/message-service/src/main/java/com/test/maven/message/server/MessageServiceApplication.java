@@ -1,4 +1,4 @@
-package com.test.maven.message;
+package com.test.maven.message.server;
 
 
 import org.springframework.boot.SpringApplication;

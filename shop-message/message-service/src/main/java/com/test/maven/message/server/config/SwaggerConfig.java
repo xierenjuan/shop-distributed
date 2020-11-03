@@ -1,4 +1,4 @@
-package com.test.maven.message.config;
+package com.test.maven.message.server.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;

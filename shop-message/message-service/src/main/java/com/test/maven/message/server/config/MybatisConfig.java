@@ -1,4 +1,4 @@
-package com.test.maven.message.config;
+package com.test.maven.message.server.config;
 
 import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.annotation.MapperScan;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 @Configuration
-@MapperScan("com.test.maven.message.dao")
+@MapperScan("com.test.maven.message.server.dao")
 public class MybatisConfig {
 
 	/**
