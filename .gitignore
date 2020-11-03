@@ -40,3 +40,6 @@
 /shop-order/order-api/target/
 /shop-message/shop-message.iml
 /shop-message/message-service/message-service.iml
+/shop-message/message-service/target/
+/shop-message/message-api/target/
+/shop-message/message-api/message-api.iml
