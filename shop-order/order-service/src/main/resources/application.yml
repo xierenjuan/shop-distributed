@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  application:
+    name: order-service
+
+  profiles:
+    active: dev
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.test.common.entity
+  configuration:
+    cache-enabled: false
+    local-cache-scope: statement
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6060/eureka/
+  instance:
+    instance-id: order-service6062 # 解决在eureka页面上显示主机名的问题
+    prefer-ip-address: true # 解决在eureka页面上不显示ip问题
+
+server:
+  port: 6062
+
+test:
+  name: tom

@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server
   profiles:
-    active: @profile.env@
+    active: dev
 server:
   port: 6060
 eureka:

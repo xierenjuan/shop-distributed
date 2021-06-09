@@ -1,0 +1,7 @@
+spring:
+    cloud:
+        config:
+            label: master
+            uri: http://localhost:6064
+            name: application-order-dev,default # 文件名
+            profile: dev

@@ -14,7 +14,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: @profile.env@
+    active: dev
   rabbitmq:
     username: guest
     password: guest
@@ -32,3 +32,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:6060/eureka/
+  instance:
+    instance-id: config-server6064 # 解决在eureka页面上显示主机名的问题，就是实例名；如果启动多个实例，名字配置成不一样的
+    prefer-ip-address: true # 解决在eureka页面上不显示ip问题
