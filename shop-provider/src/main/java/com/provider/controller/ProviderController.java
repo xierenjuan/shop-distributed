@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,6 +20,17 @@ public class ProviderController {
     @ApiOperation(value = "get接口")
     @GetMapping(value = "/provider/get")
     public String get(String id){
+        return port;
+    }
+
+    @ApiOperation(value = "feignTimeOut")
+    @GetMapping(value = "/provider/feignTimeOut/{id}")
+    public String feignTimeOut(@PathVariable("id") String id){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return port;
     }
 }

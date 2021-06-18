@@ -1,0 +1,18 @@
+package com.consumer.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+/**
+ * @Author: LongYao
+ * @Date: 2021/6/18 16:06
+ */
+@FeignClient(name = "shop-provider")
+@Component
+public interface FeignProviderInterface {
+
+    @GetMapping(value = "/provider/feignTimeOut/{id}")
+    String feignTimeOut(@PathVariable("id")String id);
+}

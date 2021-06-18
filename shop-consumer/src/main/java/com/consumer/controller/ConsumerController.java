@@ -1,6 +1,7 @@
 package com.consumer.controller;
 
 import com.consumer.ervice.LoadBalancer;
+import com.consumer.feign.FeignProviderInterface;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -31,6 +33,8 @@ public class ConsumerController {
     private DiscoveryClient discoveryClient;
     @Resource
     private LoadBalancer loadBalancer;
+    @Autowired
+    private FeignProviderInterface  feignProviderInterface;
 
     private String url = "http://shop-provider";
 
@@ -58,5 +62,10 @@ public class ConsumerController {
         URI uri = serviceInstance.getUri();
 
         return restTemplate.getForObject(uri+"/provider/get",String.class);
+    }
+
+    @GetMapping(value = "/consumer/feignTimeOut/{id}")
+    public String feignTimeOut(@PathVariable("id") String id){
+        return  feignProviderInterface.feignTimeOut(id);
     }
 }
