@@ -1,0 +1,15 @@
+server:
+  port: 3000
+spring:
+  application:
+    name: shop-consumer
+  profiles:
+    active: @profile.env@
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6060/eureka/
+  instance:
+    instance-id: shop-consumer3000 # 解决在eureka页面上显示主机名的问题
+    prefer-ip-address: true # 解决在eureka页面上不显示ip问题

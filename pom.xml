@@ -27,6 +27,9 @@
         <module>shop-goods</module>
         <module>shop-order</module>
         <module>shop-message</module>
+        <module>shop-provider</module>
+        <module>shop-consumer</module>
+        <module>shop-provider2</module>
     </modules>
 
     <properties>
@@ -45,6 +48,9 @@
         <config-server.version>1.0.0</config-server.version>
         <zuul-server.version>1.0.0</zuul-server.version>
         <message-service.version>1.0.0</message-service.version>
+        <shop-provider.version>1.0.0</shop-provider.version>
+        <shop-provider2.version>1.0.0</shop-provider2.version>
+        <shop-consumer.version>1.0.0</shop-consumer.version>
         <!-- 三方依赖版本号 -->
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
