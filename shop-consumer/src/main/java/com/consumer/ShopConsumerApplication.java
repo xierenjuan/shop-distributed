@@ -12,6 +12,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @SpringBootApplication
 @EnableOpenApi
 @EnableEurekaClient
+//@RibbonClient(name = "shop-provider",configuration = MySelfRule.class)
 public class ShopConsumerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ShopConsumerApplication.class, args);
