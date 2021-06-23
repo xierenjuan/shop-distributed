@@ -1,5 +1,6 @@
 package com.consumer.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -16,6 +17,7 @@ public class MyConfig {
      * @return
      */
 //    @LoadBalanced // 如果有自定义的负载均衡策略需要注释
+    @LoadBalanced
     @Bean
     public RestTemplate getRestTemplate(){
         return  new RestTemplate();

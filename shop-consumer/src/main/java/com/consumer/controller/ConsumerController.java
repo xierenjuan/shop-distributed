@@ -50,6 +50,7 @@ public class ConsumerController {
         return restTemplate.getForObject(url + "/provider/get", String.class);
     }
 
+    @ApiOperation(value = "手动实现负载均衡调提供者")
     @GetMapping("/consumer/lb")
     public String getPaymentLB()
     {
@@ -64,6 +65,7 @@ public class ConsumerController {
         return restTemplate.getForObject(uri+"/provider/get",String.class);
     }
 
+    @ApiOperation(value = "消费者使用feign调用提供者(超时)")
     @GetMapping(value = "/consumer/feignTimeOut/{id}")
     public String feignTimeOut(@PathVariable("id") String id){
         return  feignProviderInterface.feignTimeOut(id);
