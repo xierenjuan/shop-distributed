@@ -13,3 +13,16 @@ eureka:
   instance:
     instance-id: shop-consumer3000 # 解决在eureka页面上显示主机名的问题
     prefer-ip-address: true # 解决在eureka页面上不显示ip问题
+
+#设置feign客户端超时时间(OpenFeign默认支持ribbon)
+ribbon:
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下,两端连接所用的时间
+  ReadTimeout: 10000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 10000
+
+# feign调用日志配置
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    com.consumer.feign.FeignProviderInterface: debug
