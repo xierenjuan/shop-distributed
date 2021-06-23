@@ -72,10 +72,35 @@ public class ProviderController {
         return port;
     }
 
+
+    @HystrixCommand(fallbackMethod = "providerCircuitHandler",commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"),
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "60"),
+    })
+    @ApiOperation(value = "hystrix熔断")
+    @GetMapping(value = "/provider/hystrixCircuit/{id}")
+    public String hystrixCircuit(@PathVariable("id")String id){
+        Integer i = Integer.valueOf(id);
+        if(i < 0)
+        {
+            System.out.println("id : " + i);
+            throw new RuntimeException("******id 不能负数");
+        }
+        return port;
+    }
+
+
+
+
+    public String providerCircuitHandler(String id){
+        return "熔断--导致服务降级";
+    }
     public String providerExceptionHandler(String id){
-        return "异常--服务降级";
+        return "异常--导致服务降级";
     }
     public String providerTimeOutHandler(String id){
-        return "超时--服务降级";
+        return "超时--导致服务降级";
     }
 }

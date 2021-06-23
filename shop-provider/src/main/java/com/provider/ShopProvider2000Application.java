@@ -13,7 +13,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @SpringBootApplication
 @EnableOpenApi
 @EnableEurekaClient
-@EnableCircuitBreaker
+@EnableCircuitBreaker // 激活 HystrixCommand
 public class ShopProvider2000Application {
     public static void main(String[] args) {
         SpringApplication.run(ShopProvider2000Application.class, args);

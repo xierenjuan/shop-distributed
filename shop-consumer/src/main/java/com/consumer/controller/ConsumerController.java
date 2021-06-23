@@ -94,4 +94,10 @@ public class ConsumerController {
     public String hystrixEx(@PathVariable("id") String id){
         return  feignProviderInterface.hystrixEx(id);
     }
+
+    @ApiOperation(value = "hystrix熔断")
+    @GetMapping(value = "/consumer/hystrixCircuit/{id}")
+    public String hystrixCircuit(@PathVariable("id")String id){
+        return  feignProviderInterface.hystrixCircuit(id);
+    }
 }

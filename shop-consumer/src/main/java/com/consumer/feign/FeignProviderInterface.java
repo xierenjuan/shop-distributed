@@ -1,5 +1,6 @@
 package com.consumer.feign;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,4 +28,8 @@ public interface FeignProviderInterface {
 
     @GetMapping(value = "/provider/hystrixEx/{id}")
     public String hystrixEx(@PathVariable("id")String id);
+
+    @ApiOperation(value = "hystrix熔断")
+    @GetMapping(value = "/provider/hystrixCircuit/{id}")
+    public String hystrixCircuit(@PathVariable("id")String id);
 }
