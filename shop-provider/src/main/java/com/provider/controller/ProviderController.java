@@ -33,4 +33,11 @@ public class ProviderController {
         }
         return port;
     }
+
+    @ApiOperation(value = "feign")
+    @GetMapping(value = "/provider/feign/{id}")
+    String feign(@PathVariable("id")String id){
+        return port;
+    }
+
 }

@@ -15,4 +15,7 @@ public interface FeignProviderInterface {
 
     @GetMapping(value = "/provider/feignTimeOut/{id}")
     String feignTimeOut(@PathVariable("id")String id);
+
+    @GetMapping(value = "/provider/feign/{id}")
+    String feign(@PathVariable("id")String id);
 }
