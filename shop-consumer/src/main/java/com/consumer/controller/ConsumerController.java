@@ -76,4 +76,22 @@ public class ConsumerController {
     public String feignTimeOut(@PathVariable("id") String id){
         return  feignProviderInterface.feignTimeOut(id);
     }
+
+    @ApiOperation(value = "hystrix")
+    @GetMapping(value = "/consumer/hystrix/{id}")
+    public String hystrix(@PathVariable("id") String id){
+        return  feignProviderInterface.hystrix(id);
+    }
+
+    @ApiOperation(value = "hystrix超时")
+    @GetMapping(value = "/consumer/hystrixTime/{id}")
+    public String hystrixTime(@PathVariable("id") String id){
+        return  feignProviderInterface.hystrixTime(id);
+    }
+
+    @ApiOperation(value = "hystrix异常")
+    @GetMapping(value = "/consumer/hystrixEx/{id}")
+    public String hystrixEx(@PathVariable("id") String id){
+        return  feignProviderInterface.hystrixEx(id);
+    }
 }

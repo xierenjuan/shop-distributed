@@ -18,4 +18,13 @@ public interface FeignProviderInterface {
 
     @GetMapping(value = "/provider/feign/{id}")
     String feign(@PathVariable("id")String id);
+
+    @GetMapping(value = "/provider/hystrix/{id}")
+    public String hystrix(@PathVariable("id")String id);
+
+    @GetMapping(value = "/provider/hystrixTime/{id}")
+    public String hystrixTime(@PathVariable("id")String id);
+
+    @GetMapping(value = "/provider/hystrixEx/{id}")
+    public String hystrixEx(@PathVariable("id")String id);
 }
